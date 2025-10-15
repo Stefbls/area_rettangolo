@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from supabase import create_client, Client
 
@@ -5,8 +6,8 @@ from supabase import create_client, Client
 st.set_page_config(page_title="Login Demo", page_icon="🔐")
 
 # Leggi le chiavi da .streamlit/secrets.toml
-url = st.secrets["supabase"]["url"]
-key = st.secrets["supabase"]["key"]
+url = os.getenv("SUPABASE_URL")
+key = os.getenv("SUPABASE_KEY")
 supabase: Client = create_client(url, key)
 
 # ---- FUNZIONE LOGIN ----
