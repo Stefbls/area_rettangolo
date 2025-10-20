@@ -50,8 +50,11 @@ else:
     h = st.number_input("Altezza h (cm)", min_value=0.0, step=0.1)
     if st.button("Calcola area"):
         area = b * h
+        st.latex(r" area = b × h ")
+        st.latex(f" area = {b:.3f} × {h:.3f}  = {area:.3f}")
         st.success(f"L'area del rettangolo è **{area:.2f} cm²**")
 
     st.divider()
     if st.button("Logout"):
         logout()
+
